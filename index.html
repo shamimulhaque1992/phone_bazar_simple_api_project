@@ -1,15 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script
+      src="https://kit.fontawesome.com/7141690ecf.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <h1 class="text-center">Phone Bazar</h1>
+    </header>
+    <main class="container border border-1">
+      <!-- search feald starts -->
+      <div class="input-group mb-3 w-75 mx-auto">
+        <input
+          id="search-feald"
+          type="text"
+          class="form-control"
+          placeholder="Search the phone you want"
+          aria-label="Search the phone you want"
+          aria-describedby="button-addon2"
+        />
+        <button
+          id="btn-search"
+          class="btn btn-outline-secondary"
+          type="button"
+          id="button-addon2"
+          onclick="searchphone()"
+        >
+          Search
+        </button>
+      </div>
+      <!-- search feald Ends -->
+
+      <!-- product basic info starts -->
+      <div class="d-grid">
+        <div id="product-basic-info" class="row row-cols-1">
+            
+        </div>
+        <!-- <div id="product-details" class="row row-cols-1">
+          <table
+            id="detailsinfo"
+            class="table table-striped table-hover border border-1"
+          >
+            <thead>
+              <tr>
+                <th scope="col">Features</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+              
+            </tbody>
+          </table>
+        </div> -->
+      </div>
+      <!-- product basic info Ends -->
+
+      <!-- product details Starts -->
+      <!-- <table
+        id="detailsinfo"
+        class="table table-striped table-hover border border-1 "
+      >
+        <thead>
+          <tr>
+            <th scope="col">Features</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <td class="table-secondary">${feature}</td>
+          <td class="table-primary"><i class="fa fa-check"></i></td>
+        </tbody>
+      </table> -->
+      <!-- product details Ends -->
+
+      <!-- search results starts -->
+      <div class="d-grid">
+        <div
+          id="phonecontainer"
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4"
+        ></div>
+      </div>
+
+      <!-- search results Ends -->
+    </main>
     <script src="./js/main.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-</body>
+  </body>
 </html>
