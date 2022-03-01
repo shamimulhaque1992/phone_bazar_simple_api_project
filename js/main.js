@@ -17,9 +17,11 @@ const searchphone = () => {
   //checking wherher the input value is empty or not
   if (searchvalue == '') {
     console.log('msd');
+    toggleSpinner('none', 'block')
     errorMessagenull.style.display = 'block'
     phoneBasicscontainer.style.display = 'none'
     totalphonecontainer.style.display = 'none'
+    // toggleSpinner('none', 'block')
   } else {
     phoneBasicscontainer.style.display = 'block'
     totalphonecontainer.style.display = 'block'
@@ -62,6 +64,7 @@ const displayserachresult = (phones) => {
   //checking wherher the input value is in the array or not
   if (phones.length == 0) {
     console.log('dsf');
+    toggleSpinner('none', 'block')
     phoneBasicscontainer.style.display = 'none'
     totalphonecontainer.style.display = 'none'
     errorMessageinv.style.display = 'block'
@@ -120,7 +123,7 @@ const displayDetails = (details) => {
   div.classList.add('col')
   // creating the ditails information of the certain phone
   div.innerHTML = `
-        <div class="card text-center mx-auto" style="width: 86%">
+        <div class="card justify-content-center text-center mx-auto">
             <div class="card-header">
               <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
@@ -132,6 +135,9 @@ const displayDetails = (details) => {
                   <a id="showDetailsinfo" class="nav-link" href="#">Details info</a>
                 </li>
                 <li class="nav-item">
+                  <a id="showOtherinfo" class="nav-link" href="#">Other info</a>
+                </li>
+                <li class="nav-item">
                   <a id="showAbout"
                     class="nav-link"
                     href="#"
@@ -140,7 +146,7 @@ const displayDetails = (details) => {
                 </li>
               </ul>
             </div>
-            <img src="${details.data.image}" class="card-img-top w-50 mx-auto p-3" alt="..." />
+            <img src="${details.data.image}" class="card-img-top w-25 mx-auto p-3" alt="..." />
             <div id='basicinfo' class="card-body">
               <h5 class="card-title">${details.data.name}</h5>
               <p id="relesedate" class="card-text fw-bold">
@@ -149,8 +155,7 @@ const displayDetails = (details) => {
 
               <div id="basicinfoPhone" class="border border-2 rounded-3 shadow-md">
                 <table
-                id="detailsinfo"
-                class="table table-striped table-hover border border-1"
+                class="table mx-auto table-striped table-hover border border-1"
                 >
                     <thead>
                     <tr>
@@ -163,22 +168,39 @@ const displayDetails = (details) => {
                     </tbody>
                 </table>
             </div>
-            <div id="detailsinfoPhone" class="border border-2 rounded-3 shadow-md"  style="display: none">
-              <table
-              id="detailsinfo"
-              class="table table-striped table-hover border border-1"
-              >
-                  <thead>
-                  <tr>
-                      <th scope="col">Features</th>
-                      <th scope="col">Details</th>
-                  </tr>
-                  </thead>
-                  <tbody id="tbody-details">
-                  
-                  </tbody>
-              </table>
+            
+            <div id="detailsinfoPhone" class="border w-50  border-2 rounded-3 shadow-md mx-auto" style="display: none; white-space: nowrap">
+                  <table
+                  class="table mx-auto w-50  table-striped table-hover border border-1"
+                  >
+                      <thead>
+                      <tr>
+                          <th scope="col">Features</th>
+                          <th scope="col">Details</th>
+                      </tr>
+                      </thead>
+                      <tbody id="tbody-details">
+                      
+                      </tbody>
+                  </table>
             </div>
+            
+            <div id="othersinfoPhone" class="border  border-2 rounded-3 shadow-md mx-auto" style="display: none">
+                  <table
+                  class="table mx-auto table-striped table-hover border border-1"
+                  >
+                      <thead>
+                      <tr>
+                          <th scope="col">Features</th>
+                          <th scope="col">Details</th>
+                      </tr>
+                      </thead>
+                      <tbody id="tbody-other">
+                      </tbody>
+                  </table>
+            </div>
+            
+            
             
               <p id="stock" class="card-text bg-info text-black fw-bold rounded-3">
               ${details.status}
@@ -199,12 +221,12 @@ const displayDetails = (details) => {
 
   if (details.status == true) {
     document.getElementById('stock').innerText = 'In Stock';
-  }else{
+  } else {
     document.getElementById('stock').innerText = 'Out of Stock';
   }
   if (details.data.releaseDate == '') {
     document.getElementById('relesedate').innerText = 'Relese Date: Sorry no date found!';
-  }else{
+  } else {
     document.getElementById('relesedate').innerText = `Relese Date: ${details.data.releaseDate}`;
   }
 
@@ -229,25 +251,63 @@ const displayDetails = (details) => {
   //getting the sensore data one by one
   Object.keys(detailFeatures).forEach(data => {
     const table_data = document.createElement('tr')
+    table_data.classList.add('test')
+    // console.log(feature.indexOf(feature));
+    // table_data.classList.add('table-secondary')
+    //creating the table data for sensores
+    table_data.innerHTML = `
+            <td class="table-secondary fs-6 w-50">${data}</td>
+            <td class="table-primary fs-6  w-50">${detailFeatures[data]}</td>
+        `
+    productDetailsinfo.appendChild(table_data)
+  })
+
+
+  const productotherinfo = document.getElementById('tbody-other')
+  const otherFeatures = details.data.others;
+  if(otherFeatures == undefined) {
+    const table_data = document.createElement('tr')
+    // console.log(feature.indexOf(feature));
+    // table_data.classList.add('table-secondary')
+    //creating the table data for sensores
+    table_data.innerHTML = `
+            <td class="table-secondary w-50">Sorry others data not found!</td>
+            <td class="table-primary w-50">❌</td>
+        `
+    productotherinfo.appendChild(table_data)
+  }else{
+    console.log(otherFeatures);
+  //getting the sensore data one by one
+  Object.keys(otherFeatures).forEach(data => {
+    const table_data = document.createElement('tr')
     // console.log(feature.indexOf(feature));
     // table_data.classList.add('table-secondary')
     //creating the table data for sensores
     table_data.innerHTML = `
             <td class="table-secondary w-50">${data}</td>
-            <td class="table-primary w-50">${detailFeatures[data]}</td>
+            <td class="table-primary w-50">${otherFeatures[data]}</td>
         `
-    productDetailsinfo.appendChild(table_data)
+    productotherinfo.appendChild(table_data)
   })
-toggleSpinner('none', 'block')
+  }
+  
+  toggleSpinner('none', 'block')
 
 
   document.getElementById('showDetailsinfo').addEventListener('click', () => {
     basicinfoPhone.style.display = 'none'
     detailsinfoPhone.style.display = 'block'
+    othersinfoPhone.style.display = 'none'
   })
   document.getElementById('showBAsicinfo').addEventListener('click', () => {
     basicinfoPhone.style.display = 'block'
     detailsinfoPhone.style.display = 'none'
+    othersinfoPhone.style.display = 'none'
+  })
+  document.getElementById('showOtherinfo').addEventListener('click', () => {
+    basicinfoPhone.style.display = 'none'
+    detailsinfoPhone.style.display = 'none'
+    othersinfoPhone.style.display = 'block'
   })
   document.getElementById('showAbout').addEventListener('click', () => {
     window.open(`http://${details.data.brand}.com`);

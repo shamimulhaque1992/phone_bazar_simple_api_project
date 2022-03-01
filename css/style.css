@@ -1,25 +1,23 @@
-#error-message-inv{
-    display: none;
-    padding: 5px;
-    width: 50%;
+#error-message-inv {
+  display: none;
+  padding: 5px;
+  width: 50%;
 }
-#error-message-null{
-    display: none;
-    padding: 5px;
-    width: 50%;
+#error-message-null {
+  display: none;
+  padding: 5px;
+  width: 50%;
 }
-#spinner{
-    display: none;
+#spinner {
+  display: none;
 }
-#btnspinner{
-    display: none;
+#btnspinner {
+  display: none;
 }
-#btnsearch{
-    display: block;
+#btnsearch {
+  display: block;
 }
-/* #product-basic-info{
-    display: block;
+
+.test {
+  display: block;
 }
-#phonecontainer{
-    display: block;
-} */

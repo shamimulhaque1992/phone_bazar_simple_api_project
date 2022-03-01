@@ -13,10 +13,14 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- herder section starts  -->
     <header>
       <h1 class="text-center">Phone Bazar</h1>
     </header>
-    <main class="container border border-1">
+    <!-- herder section starts  -->
+
+    <!-- main section starts  -->
+    <main class="container border border-4">
       <!-- search feald starts -->
       <div class="input-group mb-3 w-75 mx-auto">
         <input
@@ -40,7 +44,7 @@
               role="status"
               aria-hidden="true"
             ></span>
-            Loading...
+            Searching...
           </div>
           <span id="btnsearch"> Search </span>
         </button>
@@ -53,9 +57,9 @@
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
-
       <!-- Spinner feald Ends -->
 
+      <!-- Error feald Starts -->
       <div class="errormessages">
         <div
           id="error-message-inv"
@@ -70,16 +74,13 @@
           Type the phone name in the searchbar!
         </div>
       </div>
+      <!-- Error feald Ends -->
 
       <!-- product basic info starts -->
       <div class="d-grid">
         <div id="product-basic-info" name="top" class="row row-cols-1"></div>
       </div>
       <!-- product basic info Ends -->
-
-      <!-- product details Starts -->
-
-      <!-- product details Ends -->
 
       <!-- search results starts -->
       <div id="totalphon">
@@ -90,9 +91,9 @@
           ></div>
         </div>
       </div>
-
       <!-- search results Ends -->
     </main>
+    <!-- main section ends  -->
     <script src="./js/main.js"></script>
     <script src="./js/bootstrap.min.js"></script>
   </body>
