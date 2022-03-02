@@ -2,6 +2,7 @@ const searchphone = () => {
   //display spinner while loading
   toggleSpinner('block', 'none')
   //selecting the required elements
+  const showmorebtn = document.getElementById('showmorephon')
   const searchfeald = document.getElementById('search-feald');
   searchvalue = searchfeald.value;
   const phoneBasicscontainer = document.getElementById('product-basic-info')
@@ -21,6 +22,7 @@ const searchphone = () => {
     errorMessagenull.style.display = 'block'
     phoneBasicscontainer.style.display = 'none'
     totalphonecontainer.style.display = 'none'
+    showmorebtn.style.display='none'
     // toggleSpinner('none', 'block')
   } else {
     phoneBasicscontainer.style.display = 'block'
@@ -51,6 +53,8 @@ const toggleSpinner = (displayPropsp, displaypropsc) => {
 
 // display the JSON value in ui
 const displayserachresult = (phones) => {
+
+  const shomorephonebtn = document.getElementById('showmorephon')
   console.log(typeof (phones));
   const totalphonecontainer = document.getElementById('totalphon')
   const phonecontainer = document.getElementById('phonecontainer')
@@ -68,9 +72,12 @@ const displayserachresult = (phones) => {
     toggleSpinner('none', 'block')
     phoneBasicscontainer.style.display = 'none'
     totalphonecontainer.style.display = 'none'
+    shomorephonebtn.style.display = 'none'
     errorMessageinv.style.display = 'block'
+    
   } else {
     // totalphonecontainer.style.display='block'
+    shomorephonebtn.style.display = 'block'
     errorMessageinv.style.display = 'none'
     phones.slice(0, 20).forEach((phone) => {
       console.log(phone);
@@ -93,7 +100,7 @@ const displayserachresult = (phones) => {
     })
     toggleSpinner('none', 'block')
   }
-
+  showmorebtn.style.display='block'
 
 }
 
