@@ -1,32 +1,44 @@
+/* error style for invalid input */
 #error-message-inv {
   display: none;
   padding: 5px;
   width: 50%;
 }
+/* error style for empty input */
 #error-message-null {
   display: none;
   padding: 5px;
   width: 50%;
 }
+/* style for spinner */
 #spinner {
   display: none;
 }
+
+/* style for button spinner */
 #btnspinner {
   display: none;
 }
+
+/* style for search button */
 #btnsearch {
   display: block;
 }
 
+/* body style */
 body{
   background-color: rgb(234, 237, 237)!important;
 }
+
+/* main style */
 main{
   background-color: rgb(204, 220, 240);
   box-shadow: -1px 0px 37px -6px rgb(0 0 255 / 17%);
   margin-bottom: 100px;
   padding-bottom: 50px;
 }
+
+/* style for card */
 .bg-phon-card{
   background-color: rgb(242, 250, 251);
 }
