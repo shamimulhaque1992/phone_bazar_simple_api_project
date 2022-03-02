@@ -100,7 +100,7 @@ const displayserachresult = (phones) => {
     })
     toggleSpinner('none', 'block')
   }
-  showmorebtn.style.display='block'
+  
 
 }
 
@@ -217,7 +217,7 @@ const displayDetails = (details) => {
               ${details.status}
               </p>
               
-              <a href="#" class="btn btn-primary">Buy Now</a>
+              <a href="#"id="buynowbtn" class="btn btn-primary">Buy Now</a>
             </div>
 
             
@@ -322,6 +322,11 @@ const displayDetails = (details) => {
   })
   document.getElementById('showAbout').addEventListener('click', () => {
     window.open(`http://${details.data.brand}.com`);
+  })
+  document.getElementById('buynowbtn').addEventListener('click', () => {
+    /* const tata = `https://kryinternational.com/`
+    console.log(tata); */
+    window.open(`https://kryinternational.com/`);
   })
 
 }
