@@ -11,18 +11,19 @@
       crossorigin="anonymous"
     ></script>
     <title>Document</title>
+    
   </head>
   <body>
     <!-- herder section starts  -->
     <header>
-      <h1 class="text-center">Phone Bazar</h1>
+      <h1 class="text-center m-5">Phone Bazar</h1>
     </header>
     <!-- herder section starts  -->
 
     <!-- main section starts  -->
     <main class="container border border-4">
       <!-- search feald starts -->
-      <div class="input-group mb-3 w-75 mx-auto">
+      <div class="input-group m-5 w-75 mx-auto">
         <input
           id="search-feald"
           type="text"
@@ -77,13 +78,13 @@
       <!-- Error feald Ends -->
 
       <!-- product basic info starts -->
-      <div class="d-grid">
+      <div class="d-grid m-5">
         <div id="product-basic-info" name="top" class="row row-cols-1"></div>
       </div>
       <!-- product basic info Ends -->
 
       <!-- search results starts -->
-      <div id="totalphon">
+      <div id="totalphon" class="m-4 pt-3 pb-3">
         <div class="d-grid">
           <div
             id="phonecontainer"
@@ -92,6 +93,13 @@
         </div>
       </div>
       <!-- search results Ends -->
+
+
+      <!-- show more results Starts -->
+      <div class="showMore text-center">
+        <a id="showmorephon" class="text-primary text-decoration-none" href=""><p>Show more<i class="ms-2 fa fa-arrow-circle-right"></i></p></a>
+      </div>
+      <!-- show more results Ends -->
     </main>
     <!-- main section ends  -->
     <script src="./js/main.js"></script>

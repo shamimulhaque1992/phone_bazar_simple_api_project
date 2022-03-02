@@ -41,6 +41,7 @@ const searchphone = () => {
 }
 
 
+
 //addding Spinner
 const toggleSpinner = (displayPropsp, displaypropsc) => {
   document.getElementById('spinner').style.display = displayPropsp;
@@ -93,7 +94,36 @@ const displayserachresult = (phones) => {
     toggleSpinner('none', 'block')
   }
 
+
+ /* const showMorePhonw =  () =>{
+   const phone_container = document.getElementById('totalphon')
+   phone_container.style.display = 'none'
+   phones.slice(0,10).forEach((phone) => {
+      console.log(phone);
+      const div = document.createElement('div')
+      div.classList.add('col')
+      //creating the element for search results
+      div.innerHTML = `
+        <div class="card mx-auto border border-3" style="width: 15rem">
+              <img src="${phone.image}" class="card-img-top p-3" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">${phone.phone_name}</h5>
+                <p class="card-text">
+                  ${phone.brand}
+                </p>
+                <a class="mx-auto btn btn-primary" href="#top" onclick="loadDetails('${phone.slug}')">Explore More</a>
+              </div>
+        </div>
+        `
+      phonecontainer.appendChild(div)
+      phone_container.style.display = 'block'
+    })
+    toggleSpinner('none', 'block')
+ } */
+  
+
 }
+
 
 //loading the phoner details from the details api
 const loadDetails = (slug) => {
@@ -153,9 +183,9 @@ const displayDetails = (details) => {
                 ${details.data.releaseDate}
               </p>
 
-              <div id="basicinfoPhone" class="border border-2 rounded-3 shadow-md">
+              <div id="basicinfoPhone" class="shadow-md">
                 <table
-                class="table mx-auto table-striped table-hover border border-1"
+                class="table w-50 mx-auto table-dark table-hover border border-1"
                 >
                     <thead>
                     <tr>
@@ -169,12 +199,13 @@ const displayDetails = (details) => {
                 </table>
             </div>
             
-            <div id="detailsinfoPhone" class="border w-50  border-2 rounded-3 shadow-md mx-auto" style="display: none; white-space: nowrap">
+
+            <div id="detailsinfoPhone" class="shadow-md mx-auto" style="display: none;">
                   <table
-                  class="table mx-auto w-50  table-striped table-hover border border-1"
+                  class="table w-50 mx-auto table-dark table-hover border border-1"
                   >
                       <thead>
-                      <tr>
+                      <tr >
                           <th scope="col">Features</th>
                           <th scope="col">Details</th>
                       </tr>
@@ -185,9 +216,9 @@ const displayDetails = (details) => {
                   </table>
             </div>
             
-            <div id="othersinfoPhone" class="border  border-2 rounded-3 shadow-md mx-auto" style="display: none">
+            <div id="othersinfoPhone" class="shadow-md mx-auto" style="display: none">
                   <table
-                  class="table mx-auto table-striped table-hover border border-1"
+                  class="table w-50 mx-auto table-dark table-hover border border-1"
                   >
                       <thead>
                       <tr>
@@ -202,7 +233,7 @@ const displayDetails = (details) => {
             
             
             
-              <p id="stock" class="card-text bg-info text-black fw-bold rounded-3">
+              <p id="stock" class="card-text mt-3 mb-4 w-50 mx-auto bg-info text-black fw-bold rounded-3">
               ${details.status}
               </p>
               
@@ -235,11 +266,11 @@ const displayDetails = (details) => {
   mainFeatures.forEach(feature => {
     const table_data = document.createElement('tr')
     console.log(feature.indexOf(feature));
-    // table_data.classList.add('table-secondary')
+    // table_data.classList.add('rounded-3')
     //creating the table data for sensores
     table_data.innerHTML = `
-            <td class="table-secondary">${feature}</td>
-            <td class="table-primary"><i class="fa fa-check"></i></td>
+            <td class="table-dark">${feature}</td>
+            <td class="table-dark"><i class="fa fa-check"></i></td>
             
         `
     productDetails.appendChild(table_data)
@@ -251,13 +282,13 @@ const displayDetails = (details) => {
   //getting the sensore data one by one
   Object.keys(detailFeatures).forEach(data => {
     const table_data = document.createElement('tr')
-    table_data.classList.add('test')
+    table_data.classList.add('mx-auto')
     // console.log(feature.indexOf(feature));
     // table_data.classList.add('table-secondary')
     //creating the table data for sensores
     table_data.innerHTML = `
-            <td class="table-secondary fs-6 w-50">${data}</td>
-            <td class="table-primary fs-6  w-50">${detailFeatures[data]}</td>
+            <td class="table-dark ">${data}</td>
+            <td class="table-dark">${detailFeatures[data].slice(0, 2)}</td>
         `
     productDetailsinfo.appendChild(table_data)
   })
@@ -271,8 +302,8 @@ const displayDetails = (details) => {
     // table_data.classList.add('table-secondary')
     //creating the table data for sensores
     table_data.innerHTML = `
-            <td class="table-secondary w-50">Sorry others data not found!</td>
-            <td class="table-primary w-50">❌</td>
+            <td class="table-dark w-50">Sorry others data not found!</td>
+            <td class="table-dark w-50">❌</td>
         `
     productotherinfo.appendChild(table_data)
   }else{
@@ -284,8 +315,8 @@ const displayDetails = (details) => {
     // table_data.classList.add('table-secondary')
     //creating the table data for sensores
     table_data.innerHTML = `
-            <td class="table-secondary w-50">${data}</td>
-            <td class="table-primary w-50">${otherFeatures[data]}</td>
+            <td class="table-dark w-50">${data}</td>
+            <td class="table-dark w-50">${otherFeatures[data]}</td>
         `
     productotherinfo.appendChild(table_data)
   })
