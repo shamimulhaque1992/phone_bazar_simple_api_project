@@ -78,7 +78,7 @@ const displayserachresult = (phones) => {
       div.classList.add('col')
       //creating the element for search results
       div.innerHTML = `
-        <div class="card mx-auto border border-3" style="width: 15rem">
+        <div class="card mx-auto border border-5 rounded-3" style="width: 16rem;background-color: rgb(242, 250, 251);">
               <img src="${phone.image}" class="card-img-top p-3" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">${phone.phone_name}</h5>
@@ -93,33 +93,6 @@ const displayserachresult = (phones) => {
     })
     toggleSpinner('none', 'block')
   }
-
-
- /* const showMorePhonw =  () =>{
-   const phone_container = document.getElementById('totalphon')
-   phone_container.style.display = 'none'
-   phones.slice(0,10).forEach((phone) => {
-      console.log(phone);
-      const div = document.createElement('div')
-      div.classList.add('col')
-      //creating the element for search results
-      div.innerHTML = `
-        <div class="card mx-auto border border-3" style="width: 15rem">
-              <img src="${phone.image}" class="card-img-top p-3" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">${phone.phone_name}</h5>
-                <p class="card-text">
-                  ${phone.brand}
-                </p>
-                <a class="mx-auto btn btn-primary" href="#top" onclick="loadDetails('${phone.slug}')">Explore More</a>
-              </div>
-        </div>
-        `
-      phonecontainer.appendChild(div)
-      phone_container.style.display = 'block'
-    })
-    toggleSpinner('none', 'block')
- } */
   
 
 }
@@ -162,7 +135,7 @@ const displayDetails = (details) => {
                   >
                 </li>
                 <li class="nav-item">
-                  <a id="showDetailsinfo" class="nav-link" href="#">Details info</a>
+                  <a id="showDetailsinfo" class="nav-link" href="#">Accessibility</a>
                 </li>
                 <li class="nav-item">
                   <a id="showOtherinfo" class="nav-link" href="#">Other info</a>
@@ -183,7 +156,7 @@ const displayDetails = (details) => {
                 ${details.data.releaseDate}
               </p>
 
-              <div id="basicinfoPhone" class="shadow-md">
+              <div id="detailsinfoPhone" class="shadow-md"  style="display: none">
                 <table
                 class="table w-50 mx-auto table-dark table-hover border border-1"
                 >
@@ -200,7 +173,7 @@ const displayDetails = (details) => {
             </div>
             
 
-            <div id="detailsinfoPhone" class="shadow-md mx-auto" style="display: none;">
+            <div id="basicinfoPhone" class="shadow-md mx-auto">
                   <table
                   class="table w-50 mx-auto table-dark table-hover border border-1"
                   >

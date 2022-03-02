@@ -18,4 +18,15 @@
   display: block;
 }
 
-
+body{
+  background-color: rgb(234, 237, 237)!important;
+}
+main{
+  background-color: rgb(204, 220, 240);
+  box-shadow: -1px 0px 37px -6px rgb(0 0 255 / 17%);
+  margin-bottom: 100px;
+  padding-bottom: 50px;
+}
+.bg-phon-card{
+  background-color: rgb(242, 250, 251);
+}
