@@ -93,7 +93,7 @@ const displayserachresult = (phones) => {
     })
     toggleSpinner('none', 'block')
   }
-  
+
 
 }
 
@@ -269,7 +269,7 @@ const displayDetails = (details) => {
 
   const productotherinfo = document.getElementById('tbody-other')
   const otherFeatures = details.data.others;
-  if(otherFeatures == undefined) {
+  if (otherFeatures == undefined) {
     const table_data = document.createElement('tr')
     // console.log(feature.indexOf(feature));
     // table_data.classList.add('table-secondary')
@@ -279,22 +279,22 @@ const displayDetails = (details) => {
             <td class="table-dark w-50">❌</td>
         `
     productotherinfo.appendChild(table_data)
-  }else{
+  } else {
     console.log(otherFeatures);
-  //getting the sensore data one by one
-  Object.keys(otherFeatures).forEach(data => {
-    const table_data = document.createElement('tr')
-    // console.log(feature.indexOf(feature));
-    // table_data.classList.add('table-secondary')
-    //creating the table data for sensores
-    table_data.innerHTML = `
+    //getting the sensore data one by one
+    Object.keys(otherFeatures).forEach(data => {
+      const table_data = document.createElement('tr')
+      // console.log(feature.indexOf(feature));
+      // table_data.classList.add('table-secondary')
+      //creating the table data for sensores
+      table_data.innerHTML = `
             <td class="table-dark w-50">${data}</td>
             <td class="table-dark w-50">${otherFeatures[data]}</td>
         `
-    productotherinfo.appendChild(table_data)
-  })
+      productotherinfo.appendChild(table_data)
+    })
   }
-  
+
   toggleSpinner('none', 'block')
 
 
@@ -318,3 +318,133 @@ const displayDetails = (details) => {
   })
 
 }
+
+
+//display featured phones
+const loadIPhones = () => {
+
+  const url = 'https://openapi.programming-hero.com/api/phones?search=iphone'
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const image = (data.data)
+      image.slice(0, 15).forEach((phone) => {
+        console.log(phone);
+        const iphons = document.getElementById('iphon')
+        const iphon = document.createElement('div')
+        iphon.classList.add('col')
+
+        iphon.innerHTML = `
+                        
+                      <div class="card mx-auto" style="width: 13rem">
+                        <img src="${phone.image}" class="card-img-top w-50 mx-auto p-3" alt="..." />
+                        <div class="card-body">
+                          <p class="card-text text-capitalize text-center">
+                            ${phone.phone_name}
+                          </p>
+                        </div>
+                      </div>
+                        
+                      `
+        iphons.appendChild(iphon)
+      })
+    })
+
+}
+const loadSamsungs = () => {
+
+  const url = 'https://openapi.programming-hero.com/api/phones?search=samsung'
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const image = (data.data)
+      image.slice(0, 15).forEach((phone) => {
+        console.log(phone);
+        const iphons = document.getElementById('samsung')
+        const iphon = document.createElement('div')
+        iphon.classList.add('col')
+
+        iphon.innerHTML = `
+                        
+                      <div class="card mx-auto" style="width: 13rem">
+                        <img src="${phone.image}" class="card-img-top w-50 mx-auto p-3" alt="..." />
+                        <div class="card-body">
+                          <p class="card-text text-capitalize text-center">
+                            ${phone.phone_name}
+                          </p>
+                        </div>
+                      </div>
+                        
+                      `
+        iphons.appendChild(iphon)
+      })
+    })
+}
+const loadOppo = () => {
+
+  const url = 'https://openapi.programming-hero.com/api/phones?search=oppo'
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const image = (data.data)
+      image.slice(0, 15).forEach((phone) => {
+        console.log(phone);
+        const iphons = document.getElementById('oppo')
+        const iphon = document.createElement('div')
+        iphon.classList.add('col')
+
+        iphon.innerHTML = `
+                        
+                      <div class="card mx-auto" style="width: 13rem">
+                        <img src="${phone.image}" class="card-img-top w-50 mx-auto p-3" alt="..." />
+                        <div class="card-body">
+                          <p class="card-text text-capitalize text-center">
+                            ${phone.phone_name}
+                          </p>
+                        </div>
+                      </div>
+                        
+                      `
+        iphons.appendChild(iphon)
+      })
+    })
+}
+const loadAllhuawei = () => {
+
+  const url = 'https://openapi.programming-hero.com/api/phones?search=huawei'
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => 
+    {
+      const image = (data.data)
+      image.slice(0, 15).forEach((phone) => {
+        console.log(phone);
+        const iphons = document.getElementById('huawei')
+        const iphon = document.createElement('div')
+        iphon.classList.add('col')
+
+        iphon.innerHTML = `
+                        
+                      <div class="card mx-auto" style="width: 13rem">
+                        <img src="${phone.image}" class="card-img-top w-50 mx-auto p-3" alt="..." />
+                        <div class="card-body">
+                          <p class="card-text text-capitalize text-center">
+                            ${phone.phone_name}
+                          </p>
+                        </div>
+                      </div>
+                        
+                      `
+        iphons.appendChild(iphon)
+      })
+    })
+}
+
+loadIPhones()
+loadSamsungs()
+loadOppo ()
+loadAllhuawei()
