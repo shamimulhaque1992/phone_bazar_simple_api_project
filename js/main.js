@@ -22,7 +22,7 @@ const searchphone = () => {
     errorMessagenull.style.display = 'block'
     phoneBasicscontainer.style.display = 'none'
     totalphonecontainer.style.display = 'none'
-    showmorebtn.style.display='none'
+    showmorebtn.style.display = 'none'
     // toggleSpinner('none', 'block')
   } else {
     phoneBasicscontainer.style.display = 'block'
@@ -74,7 +74,7 @@ const displayserachresult = (phones) => {
     totalphonecontainer.style.display = 'none'
     shomorephonebtn.style.display = 'none'
     errorMessageinv.style.display = 'block'
-    
+
   } else {
     // totalphonecontainer.style.display='block'
     shomorephonebtn.style.display = 'block'
@@ -100,7 +100,7 @@ const displayserachresult = (phones) => {
     })
     toggleSpinner('none', 'block')
   }
-  
+
 
 }
 
@@ -333,6 +333,7 @@ const displayDetails = (details) => {
 
 
 //display featured phones
+document.getElementById('spinnerFeature').style.display = 'block';
 const loadIPhones = () => {
 
   const url = 'https://openapi.programming-hero.com/api/phones?search=iphone'
@@ -430,8 +431,7 @@ const loadAllhuawei = () => {
 
   fetch(url)
     .then(response => response.json())
-    .then(data => 
-    {
+    .then(data => {
       const image = (data.data)
       image.slice(0, 15).forEach((phone) => {
         console.log(phone);
@@ -454,9 +454,10 @@ const loadAllhuawei = () => {
         iphons.appendChild(iphon)
       })
     })
+  document.getElementById('spinnerFeature').style.display = 'none';
 }
 
 loadIPhones()
 loadSamsungs()
-loadOppo ()
+loadOppo()
 loadAllhuawei()
